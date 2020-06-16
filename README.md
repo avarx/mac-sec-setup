@@ -4,6 +4,7 @@
 
 - [System update](#system-update)
 - [System preferences](#system-preferences)
+- [Security](#security)
 
 ## System update
 First thing you need to do, on any OS actually, is update the system! For that: **Apple Icon > About This Mac** then **Software Update...**.
@@ -16,3 +17,11 @@ In **Apple Icon > System Preferences**:
 - Keyboard > Key Repeat > Fast (all the way to the right)
 - Keyboard > Delay Until Repeat > Short (all the way to the right)
 - Dock > Automatically hide and show the Dock
+
+## Security
+I recommend checking that basic security settings are enabled.
+
+In **Apple Icon > System Preferences**:
+- Users & Groups: If you haven't already set a password for your user during the initial set up, you should do so now
+- Security & Privacy > General: Require password immediately after sleep or screen saver begins
+- Security & Privacy > FileVault: Make sure FileVault disk encryption is enabled
