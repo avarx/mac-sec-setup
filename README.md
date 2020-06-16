@@ -9,6 +9,8 @@
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
 - [Git](#git)
+- [Visual Studio Code](#visual-studio-code)
+- [Python](#python)
 
 ## System update
 First thing you need to do, on any OS actually, is update the system! For that: **Apple Icon > About This Mac** then **Software Update...**.
