@@ -11,6 +11,8 @@
 - [Git](#git)
 - [Visual Studio Code](#visual-studio-code)
 - [Python](#python)
+- [Node.js](#nodejs)
+- [Apps](#apps)
 
 ## System update
 First thing you need to do, on any OS actually, is update the system! For that: **Apple Icon > About This Mac** then **Software Update...**.
@@ -342,3 +344,110 @@ pyenv local myproject
 ```
 
 Next time you enter that project's directory, `pyenv` will automatically load the virtualenv for you.
+
+## Node.js
+The recommended way to install [Node.js](http://nodejs.org/) is to use [nvm](https://github.com/creationix/nvm) (Node Version Manager) which allows you to manage multiple versions of Node.js on the same machine.
+
+Install `nvm` by copy-pasting the [install script command](https://github.com/creationix/nvm#install--update-script) into your terminal.
+
+Once that is done, open a new terminal and verify that it was installed correctly by running:
+
+```
+command -v nvm
+```
+
+View the all available stable versions of Node with:
+
+```
+nvm ls-remote --lts
+```
+
+Install the latest stable version with:
+
+```
+nvm install node
+```
+
+It will also set the first version installed as your default version. You can install another specific version, for example Node 10, with:
+
+```
+nvm install 10
+```
+
+And switch between versions by using:
+
+```
+nvm use 10
+nvm use default
+```
+
+See which versions you have install with:
+
+```
+nvm ls
+```
+
+Change the default version with:
+
+```
+nvm alias default 10
+```
+
+In a project's directory you can create a `.nvmrc` file containing the Node.js version the project uses, for example:
+
+```
+echo "10" > .nvmrc
+```
+
+Next time you enter the project's directory from a terminal, you can load the correct version of Node.js by running:
+
+```
+nvm use
+```
+
+### npm
+Installing Node also installs the [npm](https://npmjs.org/) package manager.
+
+To install a package:
+
+```
+npm install <package> # Install locally
+npm install -g <package> # Install globally
+```
+
+To install a package and save it in your project's `package.json` file:
+
+```
+npm install --save <package>
+```
+
+To see what's installed:
+
+```
+npm list --depth 1 # Local packages
+npm list -g --depth 1 # Global packages
+```
+
+To find outdated packages (locally or globally):
+
+```
+npm outdated [-g]
+```
+
+To upgrade all or a particular package:
+
+```
+npm update [<package>]
+```
+
+To uninstall a package:
+
+```
+npm uninstall --save <package>
+```
+
+## Apps
+Here is a quick list of some apps I use, and that you might find useful as well:
+
+- [1Password](https://1password.com/): Securely store your login and passwords, and access them from all your devices. **($3/month)**
+- [Spectacle](https://www.spectacleapp.com/): Move and resize windows with keyboard shortcuts. **(Free)**
