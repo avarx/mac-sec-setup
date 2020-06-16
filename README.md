@@ -13,6 +13,7 @@
 - [Python](#python)
 - [Node.js](#nodejs)
 - [Apps](#apps)
+<hr>
 
 ## System update
 First thing you need to do, on any OS actually, is update the system! For that: **Apple Icon > About This Mac** then **Software Update...**.
@@ -449,5 +450,4 @@ npm uninstall --save <package>
 ## Apps
 Here is a quick list of some apps I use, and that you might find useful as well:
 
-- [1Password](https://1password.com/): Securely store your login and passwords, and access them from all your devices. **($3/month)**
-- [Spectacle](https://www.spectacleapp.com/): Move and resize windows with keyboard shortcuts. **(Free)**
+- [1Password](https://1password.com/): Securely store your login and passwords, and access them from all your devices.
