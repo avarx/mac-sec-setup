@@ -1,7 +1,7 @@
 # macOS Pentest Setup
- A beginner's guide to setting up a pentest environment on macOS
- 
+ A beginner's guide to setting up a pentest environment on macOS<br>
  Inspired by [nicolahery](https://twitter.com/nicolas_hery)'s mac-dev-setup
+<hr>
 
 - [System update](#system-update)
 - [System preferences](#system-preferences)
