@@ -146,3 +146,162 @@ On a Mac, it is important to remember to add `.DS_Store` (a hidden macOS system 
 cd ~
 curl -O https://raw.githubusercontent.com/avarx/mac-sec-setup/master/.gitignore
 git config --global core.excludesfile ~/.gitignore
+```
+
+
+## Python
+macOS, like Linux, ships with [Python](http://python.org/) already installed. But you don't want to mess with the system Python (some system tools rely on it, etc.), so we'll install our own version using [pyenv](https://github.com/yyuu/pyenv). This will also allow us to manage multiple versions of Python (ex: 2.7 and 3) should we need to.
+
+Install `pyenv` via Homebrew by running:
+
+```
+brew install pyenv
+```
+
+When finished, you should see instructions to add something to your profile. Open your `.bash_profile` in the home directory (you can use `code ~/.bash_profile`), and add the following line:
+
+```bash
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+```
+
+Save the file and reload it with:
+
+```
+source ~/.bash_profile
+```
+
+Before installing a new Python version, the [pyenv wiki](https://github.com/pyenv/pyenv/wiki) recommends having a few dependencies available:
+
+```
+brew install openssl readline sqlite3 xz zlib
+```
+
+We can now list all available Python versions by running:
+
+```
+pyenv install --list
+```
+
+Look for the latest 3.x version (or 2.7.x), and install it (replace the `.x.x` with actual numbers):
+
+```
+pyenv install 3.x.x
+```
+
+List the Python versions you have locally with:
+
+```
+pyenv versions
+```
+
+The star (`*`) should indicate we are still using the `system` version, which is the default. I recommend leaving it as the default as some [Node.js](https://nodejs.org/en/) packages will use it in their installation process.
+
+You can switch your current terminal to another Python version with:
+
+```
+pyenv shell 3.x.x
+```
+
+You should now see that version when running:
+
+```
+python --version
+```
+
+In a project directory, you can use:
+
+```
+pyenv local 3.x.x
+```
+
+This will save that project's Python version to a `.python-version` file. Next time you enter the project's directory from a terminal, `pyenv` will automatically load that version for you.
+
+For more information, see the [pyenv commands](https://github.com/yyuu/pyenv/blob/master/COMMANDS.md) documentation.
+
+### pip
+
+[pip](https://pip.pypa.io) was also installed by `pyenv`. It is the package manager for Python.
+
+Here are a couple Pip commands to get you started. To install a Python package:
+
+```
+pip install <package>
+```
+
+To upgrade a package:
+
+```
+pip install --upgrade <package>
+```
+
+To see what's installed:
+
+```
+pip freeze
+```
+
+To uninstall a package:
+
+```
+pip uninstall <package>
+```
+
+### virtualenv
+
+[virtualenv](https://virtualenv.pypa.io) is a tool that creates an isolated Python environment for each of your projects.
+
+For a particular project, instead of installing required packages globally, it is best to install them in an isolated folder, that will be managed by `virtualenv`. The advantage is that different projects might require different versions of packages, and it would be hard to manage that if you install packages globally.
+
+Instead of installing and using `virtualenv` directly, we'll use the dedicated `pyenv` plugin [pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv) which will make things a bit easier for us. Install it via Homebrew:
+
+```
+brew install pyenv-virtualenv
+```
+
+After installation, add the following line to your `.bash_profile`:
+
+```bash
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+```
+
+And reload it with:
+
+```
+source ~/.bash_profile
+```
+
+Now, let's say you have a project called `myproject`. You can set up a virtualenv for that project and the Python version it uses (replace `3.x.x` with the version you want):
+
+```
+pyenv virtualenv 3.x.x myproject
+```
+
+See the list of virtualenvs you created with:
+
+```
+pyenv virtualenvs
+```
+
+To use your project's virtualenv, you need to **activate** it first (in every terminal where you are working on your project):
+
+```
+pyenv activate myproject
+```
+
+If you run `pyenv virtualenvs` again, you should see a star (`*`) next to the active virtualenv.
+
+Now when you install something:
+
+```
+pip install <package>
+```
+
+It will get installed in that virtualenv's folder, and not conflict with other projects.
+
+You can also set your project's `.python-version` to point to a virtualenv you created:
+
+```
+pyenv local myproject
+```
+
+Next time you enter that project's directory, `pyenv` will automatically load the virtualenv for you.
