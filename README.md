@@ -447,6 +447,35 @@ To uninstall a package:
 npm uninstall --save <package>
 ```
 
+## Docker
+Download [Docker for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) and double-click `Docker.dmg` to start the install process. When the installation completes and Docker starts, the whale in the top status bar shows that Docker is running, and accessible from a terminal.
+
+### Run
+Run `docker version` to check that you have the latest release installed.
+
+Run `docker run hello-world` to verify that Docker is pulling images and running as expected.
+
+## Kali Docker Container
+### Vanilla version
+Simple:
+```
+docker pull kalilinux/kali-rolling
+docker run -t -i kalilinux/kali-rolling /bin/bash
+```
+Dedicated:
+```
+docker run -d \
+	--rm \
+	-h ${ctf_name} \
+	--name ${ctf_name} \
+	-v $(pwd)/${ctf_name}:/ctf/work \
+	-p 23943:23943 \
+	kalilinux/kali-rolling
+
+docker exec -it ${ctf_name} /bin/bash
+```
+### Build your own
+
 ## Apps
 Here is a quick list of some apps I use, and that you might find useful as well:
 
