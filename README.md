@@ -480,3 +480,4 @@ docker exec -it ${ctf_name} /bin/bash
 Here is a quick list of some apps I use, and that you might find useful as well:
 
 - [1Password](https://1password.com/): Securely store your login and passwords, and access them from all your devices.
+- [Burp](https://portswigger.net/burp/releases): Vulnerability scanning, penetration testing, and web app security platform.
